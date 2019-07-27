@@ -1,0 +1,14 @@
+<template>
+  <v-btn
+    fab
+    fixed
+    bottom
+    right
+    color="blue"
+    href="https://github.com/vagivagi/blog-ui"
+    target="_blank"
+    rel="noopener"
+  >
+    <v-icon>get_app</v-icon>
+  </v-btn>
+</template>
