@@ -16,7 +16,7 @@
 
 <script>
 import Entries from '~/components/Entries.vue'
-import CategoriesLink from '~/components/CategoriesLink'
+import CategoriesLink from '~/components/CategoriesLink.vue'
 
 export default {
   data() {

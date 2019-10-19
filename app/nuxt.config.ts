@@ -1,6 +1,4 @@
-import NuxtConfiguration from '@nuxt/config'
 import colors from 'vuetify/es5/util/colors'
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const environment = process.env.NODE_ENV || 'development';
 const envSet = require(`./config/env.${environment}.js`)
 
@@ -40,8 +38,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/prism.js',
-    '~/plugins/vuetify.js'
+    '~/plugins/prism.js'
   ],
   /*
   ** Nuxt.js modules
@@ -50,15 +47,10 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // TODO '@nuxtjs/eslint-module',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    "@nuxtjs/vuetify"
   ],
-  buildModules: [
-    // With options
-    ['@nuxtjs/vuetify', { /* module options */ }]
-  ],
-  devModules: [
-    '@nuxtjs/vuetify'
-  ],
+  buildModules: ["@nuxt/typescript-build"],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -109,7 +101,6 @@ export default {
         fiber: require('fibers'),
       }
     },
-    plugins: [new VuetifyLoaderPlugin()],
     typescript: {
       // this is required - if set to true the HMR in dev will time out
       typeCheck: false

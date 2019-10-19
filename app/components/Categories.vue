@@ -6,7 +6,6 @@
         <li :key="index">
           <v-icon color="blue">layers</v-icon>
           <CategoriesLink :categories="c.categories"/>
-          <br>
         </li>
       </template>
       </ul>
@@ -30,7 +29,7 @@ export default {
     }
   },
   created: async function () {
-    const res = await axios.get(process.env.apiBaseUrl || 'http://localhost:8080'  + '/categories')
+    const res = await axios.get(process.env.apiBaseUrl + '/categories')
     this.categories = res.data
   }
 }

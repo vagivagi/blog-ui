@@ -1,7 +1,7 @@
 {
   "include": [
     "**/*.ts",
-    "**/*.vue", "plugins/vuetify.js", "plugins/prism.js"
+    "**/*.vue", "plugins/prism.js"
   ],
   "compilerOptions": {
     "target": "esnext",

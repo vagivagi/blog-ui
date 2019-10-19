@@ -50,7 +50,7 @@
 <script lang="ts">
 import axios from 'axios'
 import Prism from 'prismjs'
-import CategoriesLink from '~/components/CategoriesLink'
+import CategoriesLink from '~/components/CategoriesLink.vue'
 
 export default {
   async asyncData({ params }) {

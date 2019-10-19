@@ -9,3 +9,4 @@ dist
 *.code-workspace
 
 .env
+.DS_Store

@@ -7,13 +7,13 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "dev": "nuxt",
+    "dev": "nuxt-ts",
     "prod": "cross-env NODE_ENV=\"production\" nuxt",
-    "build": "nuxt build",
-    "build:prod": "cross-env NODE_ENV=\"production\" nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "start:prod": "cross-env NODE_ENV=\"production\" nuxt start"
+    "build": "nuxt-ts build",
+    "build:prod": "cross-env NODE_ENV=\"production\" nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "start:prod": "cross-env NODE_ENV=\"production\" nuxt-ts start"
   },
   "dependencies": {
     "@nuxt/typescript": "^2.8.1",
@@ -29,7 +29,7 @@
     "markdown-it-highlightjs": "^3.0.0",
     "markdown-it-meta": "0.0.1",
     "markdown-it-table-of-contents": "^0.4.4",
-    "nuxt": "^2.9.2",
+    "nuxt": "^2.0.0",
     "prismjs": "^1.17.1",
     "sass": "^1.22.12",
     "sass-loader": "^7.3.1",

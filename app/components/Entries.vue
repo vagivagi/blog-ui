@@ -3,19 +3,19 @@
     <v-container>
       <v-list>
         <template v-for="(entry, index) in entries">
-          <v-list-tile :key="`first-${index}`">
-            <v-list-tile-avatar>
+          <v-list-item :key="`first-${index}`">
+            <v-list-item-avatar>
               <v-icon color="green">description</v-icon>
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>
                 <router-link :to="'/entries/' + entry.entryId">{{ entry.frontMatter.title }}</router-link>
-              </v-list-tile-title>
-              <v-list-tile-sub-title>
+              </v-list-item-title>
+              <v-list-item-subtitle>
                 <CategoriesLink :categories="entry.frontMatter.categories"/>
-              </v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
+              </v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
           <v-divider v-if="index + 1 < entries.length" :key="index"/>
         </template>
       </v-list>

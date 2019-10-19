@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     refresh: async function () {
-      const res = await axios.get(process.env.apiBaseUrl || 'http://localhost:8080' + '/tags')
+      const res = await axios.get(process.env.apiBaseUrl + '/tags')
       this.tags = res.data
     }
   }
