@@ -51,6 +51,7 @@ export default {
     "@nuxtjs/vuetify"
   ],
   buildModules: ["@nuxt/typescript-build"],
+  serverMiddleware: ['redirect-ssl'],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
