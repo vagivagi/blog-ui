@@ -1,5 +1,24 @@
 <template>
   <div class="main-content">
-    <h3>My Profile</h3>
+    <div>
+      <h3>Profile</h3>
+      <p>平成2年生まれの都内住みのシステムエンジニアです。主にJava周辺のサーバーサイドいじっています。<br>
+      このサイトは自分用のメモや日記向けに開発しました。</p>
+    </div>
+    <div>
+      <h3>Skill</h3>
+        <h4>Language</h4>
+        <h4>Framework/Library</h4>
+        <h4>Tool</h4>
+        <h4>Certification</h4>
+    </div>
+    <div>
+      <h3>Works</h3>
+      <p>職務経歴書のリンク</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>何かありましたらTwitterのDMからご連絡ください。</p>
+    </div>
   </div>
 </template>
