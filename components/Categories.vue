@@ -6,7 +6,6 @@
         <li :key="index">
           <v-icon color="blue">layers</v-icon>
           <CategoriesLink :categories="c.categories"/>
-          <br>
         </li>
       </template>
       </ul>
@@ -15,7 +14,7 @@
 </template>
 <script lang="ts">
 import axios from 'axios'
-import CategoriesLink from '~/components/CategoriesLink'
+import CategoriesLink from './CategoriesLink.vue'
 
 export default {
   components: {
@@ -23,17 +22,15 @@ export default {
   },
   data() {
     return {
-      categories: []
+      categories: {
+        type: Object,
+        required: true
+      }
     }
   },
   created: async function () {
-    await this.refresh()
-  },
-  methods: {
-    refresh: async function () {
-      const res = await axios.get(process.env.apiBaseUrl + '/categories')
-      this.categories = res.data
-    }
+    const res = await axios.get(process.env.apiBaseUrl + '/categories')
+    this.categories = res.data
   }
 }
 </script>

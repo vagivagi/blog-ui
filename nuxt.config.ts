@@ -38,23 +38,25 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/prism'
+    '~/plugins/prism.js'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/vuetify',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/markdownit'
+    // TODO '@nuxtjs/eslint-module',
+    '@nuxtjs/markdownit',
+    "@nuxtjs/vuetify"
   ],
+  buildModules: ["@nuxt/typescript-build"],
+  serverMiddleware: ['redirect-ssl'],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {
+  axios: { 
   },
   /*
   ** vuetify module configuration
@@ -92,10 +94,18 @@ export default {
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-    }
+    transpile: ['vuetify/lib'],
+    loaders: {
+      // we want to use sass instead of node-sass
+      options: {
+        implementation: require('sass'),
+        fiber: require('fibers'),
+      }
+    },
+    typescript: {
+      // this is required - if set to true the HMR in dev will time out
+      typeCheck: false
+    },
+    buildModules: ['@nuxt/typescript-build']
   }
 }

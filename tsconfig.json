@@ -1,4 +1,8 @@
 {
+  "include": [
+    "**/*.ts",
+    "**/*.vue", "plugins/prism.js"
+  ],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -12,7 +16,8 @@
     "experimentalDecorators": true,
     "allowJs": true,
     "sourceMap": true,
-    "strict": true,
+    "strict": false, /* 一旦厳密に型定義しない */
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
     "noEmit": true,
     "baseUrl": ".",
@@ -26,7 +31,8 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/vue-app"
+      "@nuxt/vue-app",
+      "@nuxtjs/vuetify"
     ]
   }
 }

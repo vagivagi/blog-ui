@@ -3,19 +3,19 @@
     <v-container>
       <v-list>
         <template v-for="(entry, index) in entries">
-          <v-list-tile :key="`first-${index}`">
-            <v-list-tile-avatar>
+          <v-list-item :key="`first-${index}`">
+            <v-list-item-avatar>
               <v-icon color="green">description</v-icon>
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>
                 <router-link :to="'/entries/' + entry.entryId">{{ entry.frontMatter.title }}</router-link>
-              </v-list-tile-title>
-              <v-list-tile-sub-title>
+              </v-list-item-title>
+              <v-list-item-subtitle>
                 <CategoriesLink :categories="entry.frontMatter.categories"/>
-              </v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
+              </v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
           <v-divider v-if="index + 1 < entries.length" :key="index"/>
         </template>
       </v-list>
@@ -24,7 +24,7 @@
 </template>
 <script lang="ts">
 import axios from 'axios'
-import CategoriesLink from '~/components/CategoriesLink'
+import CategoriesLink from './CategoriesLink.vue'
 
 export default {
   props: ['query', 'tag', 'categories'],
@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      entries: []
+      entries: Object
     }
   },
   created: async function () {
@@ -46,13 +46,14 @@ export default {
   },
   methods: {
     refresh: async function () {
-      let api = process.env.apiBaseUrl + '/entries'
+      const apiUrl = process.env.apiBaseUrl || 'http://localhost:8080'
+      let api = apiUrl + '/entries'
       if (this.query !== undefined) {
-        api = process.env.apiBaseUrl + '/entries?q=' + this.query
+        api = apiUrl + '/entries?q=' + this.query
       } else if (this.tag != null) {
-        api = process.env.apiBaseUrl + '/tags/' + this.tag + '/entries'
+        api = apiUrl + '/tags/' + this.tag + '/entries'
       } else if (this.categories != null) {
-        api = process.env.apiBaseUrl + '/categories/' + this.categories + '/entries'
+        api = apiUrl + '/categories/' + this.categories + '/entries'
       }
       const res = await axios.get(api)
       this.entries = res.data

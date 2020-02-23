@@ -22,7 +22,10 @@
 import Entries from '~/components/Entries.vue'
 
 export default {
-  props: ['query', 'searchText'],
+  props: {
+    query: [String],
+    searchText: [String]
+  },
   data() {
     return {
       composing: false

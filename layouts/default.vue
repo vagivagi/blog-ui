@@ -4,20 +4,21 @@
     <v-toolbar
       class="hidden-sm-and-down">
       <v-toolbar-title class="pr-4">
-        <router-link :to="to" class="toolbar-title">{{title}}</router-link>
+        <router-link :to="to" class="toolbar-title" tag="h3">{{ title }}</router-link>
       </v-toolbar-title>
       <v-toolbar-items>
       <v-btn
         v-for="(item, i) in items"
         :key="i"
         :to="item.to"
-        flat>
-        <v-icon left>{{ item.icon}}</v-icon>
+        text>
+        <v-icon left>{{ item.icon }}</v-icon>
         <div>{{ item.title }}</div>
       </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <div class="hidden-md-and-up">
+      <v-expansion-panels>
       <v-expansion-panel>
         <v-expansion-panel-content
         expand
@@ -39,6 +40,7 @@
           </v-card>
         </v-expansion-panel-content>
         </v-expansion-panel>
+        </v-expansion-panels>
       </div>
     </nav>
     <v-content>
@@ -60,7 +62,7 @@
 </template>
 
 <script>
-import Cta from '~/components/Cta'
+import Cta from '~/components/Cta.vue'
 
 export default {
   components: {
@@ -93,7 +95,7 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'vagivagi blog',
-      to: '/entries'
+      to: '/'
     }
   }
 }

@@ -3,7 +3,9 @@
     <v-container>
       <template v-for="(tag, index) in tags">
         <div :key="index">
-          <v-icon color="orange">label</v-icon>
+          <v-icon color="orange">
+            label
+          </v-icon>
           <router-link :to="'/entries/tags/' + tag.value + '/'">{{ tag.value }}</router-link>
           <br>
         </div>
@@ -13,11 +15,14 @@
 </template>
 <script lang="ts">
 import axios from 'axios'
+import { PropType } from 'vue'
 
 export default {
   data() {
     return {
-      tags: []
+      tags: {
+        type: Object
+      }
     }
   },
   created: async function () {
