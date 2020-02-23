@@ -56,7 +56,7 @@ export default {
   async asyncData({ params }) {
     // We can use async/await ES6 featuere
     const { data } = await axios.get(
-      process.env.apiBaseUrl || 'http://localhost:8080' + `/entries/${params.id}`
+      (process.env.apiBaseUrl || 'http://localhost:8080') + `/entries/${params.id}`
     )
     return { entry: data }
   },
