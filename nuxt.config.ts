@@ -23,9 +23,6 @@ export default {
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       }
-    ], 
-    script: [
-      { src: 'plugins/gtag.js', mode: 'client' }
     ]
   },
   /*
@@ -51,7 +48,10 @@ export default {
     '@nuxtjs/axios',
     // TODO '@nuxtjs/eslint-module',
     '@nuxtjs/markdownit',
-    "@nuxtjs/vuetify"
+    "@nuxtjs/vuetify",
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-29175162-3'
+    }]
   ],
   buildModules: ["@nuxt/typescript-build"],
   serverMiddleware: ['redirect-ssl'],
