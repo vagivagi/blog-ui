@@ -1,24 +1,22 @@
 <template>
   <div class="main-content">
     <div>
-      <h3>Profile</h3>
-      <p>平成2年生まれの都内住みのシステムエンジニアです。主にJava周辺のサーバーサイドいじっています。<br>
+      <h3 class="headline">Profile</h3>
+      <p>都内在住のシステムエンジニアです。主にJava周辺のサーバーサイドいじっています。<br>
       このサイトは自分用のメモや日記向けに開発しました。</p>
     </div>
     <div>
-      <h3>Skill</h3>
-        <h4>Language</h4>
-        <h4>Framework/Library</h4>
-        <h4>Tool</h4>
-        <h4>Certification</h4>
+      <h3 class="headline">Skill</h3>
+        <h4 class="title">Language</h4>
+        <p class="body-1">Java, JavaScript, TypeScript, Ruby, Go</p>
+        <h4 class="title">Framework/Library</h4>
+        <p class="body-1">Spring Framework, Spring Boot, Seasar2, Vue.js, Nuxt.js, React, Sinatra</p>
+        <h4 class="title">Tool</h4>
+        <p class="body-1">GitHub.com, GitHub Enterprise(Admin), Cloud Foundry, Heroku, AWS, Azure, Concourse CI, </p>
     </div>
     <div>
-      <h3>Works</h3>
-      <p>職務経歴書のリンク</p>
-    </div>
-    <div>
-      <h3>Contact</h3>
-      <p>何かありましたらTwitterのDMからご連絡ください。</p>
+      <h3 class="headline">Contact</h3>
+      <p class="title"><a href="https://forms.gle/NGbfkEnM5VxUA6Eq7" target="_blank" rel="noopener">Google Form</a></p>
     </div>
   </div>
 </template>
