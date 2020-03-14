@@ -40,9 +40,8 @@
         </v-card-text>
       </v-card>
       <br />
-      <v-card>
-        <v-card-text v-html="$md.render(entry.content)"/>
-      </v-card>
+        <div v-html="$md.render(entry.content)"/>
+    
     </div>
   </div>
 </template>
