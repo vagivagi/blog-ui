@@ -8,7 +8,7 @@
         <v-toolbar-items>
           <v-btn v-for="(item, i) in items" :key="i" :to="item.to" text>
             <v-icon left>{{ item.icon }}</v-icon>
-            <div>{{ item.title }}</div>
+            <div class="d-none d-sm-flex">{{ item.title }}</div>
           </v-btn>
         </v-toolbar-items>
       </v-toolbar>
