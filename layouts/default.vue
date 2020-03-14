@@ -1,8 +1,7 @@
 <template>
   <v-app>
     <nav>
-    <v-toolbar
-      class="hidden-sm-and-down">
+    <v-toolbar>
       <v-toolbar-title class="pr-4">
         <router-link :to="to" class="toolbar-title" tag="h3">{{ title }}</router-link>
       </v-toolbar-title>
@@ -17,31 +16,6 @@
       </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <div class="hidden-md-and-up">
-      <v-expansion-panels>
-      <v-expansion-panel>
-        <v-expansion-panel-content
-        expand
-        v-model="show">
-          <div slot="header">
-           <strong>
-             <router-link :to="to" class="toolbar-title">{{ title }}</router-link>
-           </strong>
-          </div>
-          <v-card
-           v-for="(item, i) in items"
-           :key="i"
-           flat
-           v-model="show"
-           >
-             <router-link class="nav-item" :to="item.to">
-              <v-card-text>{{ item.title }}</v-card-text>
-             </router-link>
-          </v-card>
-        </v-expansion-panel-content>
-        </v-expansion-panel>
-        </v-expansion-panels>
-      </div>
     </nav>
     <v-content>
       <v-container>
