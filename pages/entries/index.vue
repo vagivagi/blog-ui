@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title>
         <v-text-field
-         v-model="searchText"
+         v-model="query"
          @keydown.enter="search"
          @compositionstart="composing=true"
          @compositionend="composing=false"
@@ -23,12 +23,12 @@ import Entries from '~/components/Entries.vue'
 
 export default {
   props: {
-    query: [String],
     searchText: [String]
   },
   data() {
     return {
-      composing: false
+      composing: false,
+      query: this.searchText
     }
   },
   components: {
