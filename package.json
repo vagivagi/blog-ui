@@ -1,20 +1,20 @@
 {
   "name": "blog-ui",
   "version": "1.0.0",
+  "private": true,
   "description": "My Blog Frontend Project",
   "author": "vagivagi",
-  "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint",
-    "dev": "nuxt-ts",
-    "prod": "cross-env NODE_ENV=\"production\" nuxt-ts",
     "build": "nuxt-ts build",
+    "lint": "vue-cli-service lint",
     "build:prod": "cross-env NODE_ENV=\"production\" nuxt-ts build",
-    "start": "nuxt-ts start",
+    "dev": "nuxt-ts",
     "generate": "nuxt-ts generate",
-    "start:prod": "cross-env NODE_ENV=\"production\" nuxt-ts start",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "precommit": "npm run lint",
+    "prod": "cross-env NODE_ENV=\"production\" nuxt-ts",
+    "start": "nuxt-ts start",
+    "start:prod": "cross-env NODE_ENV=\"production\" nuxt-ts start"
   },
   "dependencies": {
     "@nuxt/typescript": "^2.8.1",
@@ -43,6 +43,8 @@
     "@nuxt/typescript-build": "^0.5.7",
     "@nuxtjs/eslint-config": "^2.0.2",
     "@nuxtjs/eslint-module": "^1.1.0",
+    "@vue/cli-plugin-eslint": "^4.2.3",
+    "@vue/cli-service": "^4.2.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
