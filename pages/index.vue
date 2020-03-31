@@ -15,8 +15,27 @@
         <p class="body-1">GitHub.com, GitHub Enterprise(Admin), Cloud Foundry, Heroku, AWS, Azure, Concourse CI, </p>
     </div>
     <div>
+    <h3 class="headline">GitHub Activities</h3>
+    <GlassGraph v-bind:github-id="vagivagi" />
+    </div>
+    <div>
       <h3 class="headline">Contact</h3>
       <p class="title"><a href="https://forms.gle/NGbfkEnM5VxUA6Eq7" target="_blank" rel="noopener">Google Form</a></p>
     </div>
   </div>
 </template>
+
+<script>
+import GlassGraph from '~/components/GlassGraph.vue'
+
+export default {
+  components: {
+    GlassGraph
+  },
+  head() {
+    return {
+      title: `TOP`
+    }
+  }
+}
+</script>
