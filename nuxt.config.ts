@@ -83,13 +83,10 @@ export default {
   ** markdown render 
   */
   markdownit: {
-    preset: 'default',
     linkify: true,
-    breaks: true,
     html: true,
     typegraphy: true,
     injected: true,
-    langPrefix: 'lang-',
     use: [
       'markdown-it-meta',
       'markdown-it-highlightjs',
