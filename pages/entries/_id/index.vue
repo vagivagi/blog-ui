@@ -47,17 +47,30 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios'
 import Prism from 'prismjs'
 import CategoriesLink from '~/components/CategoriesLink.vue'
 
 export default {
-  async asyncData({ params }) {
-    // We can use async/await ES6 featuere
-    const { data } = await axios.get(
-      (process.env.apiBaseUrl || 'http://localhost:8080') + `/entries/${params.id}`
-    )
-    return { entry: data }
+  asyncData(context) {
+    const path = (process.env.apiBaseUrl || 'http://localhost:8080') + `/entries/${context.route.params.id}`
+    return context.app.$axios
+      .$get(path)
+      .then((res) => {
+        return { entry: res }
+      })
+      .catch((e) => {
+        if (e.response === undefined) {
+          context.error({
+            statusCode: 500,
+            message: 'Internal Server Error'
+          })
+          return
+        }
+        context.error({
+          statusCode: e.response.status,
+          message: 'Post not found'
+        })
+      })
   },
   components: {
     CategoriesLink
