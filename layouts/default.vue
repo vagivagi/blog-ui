@@ -13,11 +13,11 @@
         </v-toolbar-items>
       </v-toolbar>
     </nav>
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
     <Cta />
     <v-footer :fixed="fixed" app text-xs-center>
       <v-flex text-xs-center>

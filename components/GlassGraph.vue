@@ -15,7 +15,7 @@ export default {
     githubId: {
       type: String,
       required: true,
-      default: "vagivagi"
+      default: 'vagivagi'
     }
   },
   data: function() {
@@ -27,7 +27,8 @@ export default {
       githubLink: {
         type: String,
         required: true
-      }
+      },
+      name: this.githubId
     };
   },
   created: function() {
