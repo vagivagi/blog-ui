@@ -11,7 +11,7 @@ RUN apk --no-cache --virtual build-dependencies add \
     && npm install \
     && apk del build-dependencies
 ADD . ./
-RUN npm run build
+RUN npm run build:k8s
 
 FROM node:14.1.0-alpine
 
@@ -32,4 +32,4 @@ COPY --from=builder ./app/components ./components/
 COPY --from=builder ./app/layouts ./layouts/
 COPY --from=builder ./app/plugins/*.js ./plugins/
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start:k8s"]
