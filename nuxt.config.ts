@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import redirectSSL from 'redirect-ssl'
 const environment = process.env.NODE_ENV || 'development';
 const envSet = require(`./config/env.${environment}.js`)
 
@@ -49,7 +50,11 @@ export default {
     }]
   ],
   buildModules: ["@nuxt/typescript-build"],
-  serverMiddleware: ['redirect-ssl'],
+  serverMiddleware: [
+    redirectSSL.create({
+      enabled: process.env.NODE_ENV === 'production'
+     }),
+  ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
