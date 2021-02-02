@@ -1,1 +1,1 @@
-export const apiBaseUrl = 'https://vagivagi.com/api'
+export const apiBaseUrl = 'https://vagivagi-blog-api.herokuapp.com/api'
