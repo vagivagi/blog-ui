@@ -7,16 +7,17 @@
   "scripts": {
     "build": "nuxt-ts build",
     "build:prod": "cross-env NODE_ENV=\"production\" nuxt-ts build",
-    "build:k8s": "cross-env NODE_ENV=\"k8s\" nuxt-ts build",
+    "build:local": "cross-env NODE_ENV=\"local\" nuxt-ts build",
     "lint": "vue-cli-service lint",
     "dev": "nuxt-ts",
+    "dev:local": "cross-env NODE_ENV=\"local\" nuxt-ts",
     "generate": "nuxt-ts generate",
     "heroku-postbuild": "npm run build",
     "precommit": "npm run lint",
     "prod": "cross-env NODE_ENV=\"production\" nuxt-ts",
     "start": "nuxt-ts start",
     "start:prod": "cross-env NODE_ENV=\"production\" nuxt-ts start",
-    "start:k8s": "cross-env NODE_ENV=\"k8s\" nuxt-ts start"
+    "start:local": "cross-env NODE_ENV=\"local\" nuxt-ts start"
   },
   "dependencies": {
     "@nuxt/typescript": "^2.8.1",
