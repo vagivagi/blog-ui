@@ -3,7 +3,9 @@
     <div class="container">
       <v-card>
         <v-card-title class="pa-3">
-          <h1 class="headline font-weight-bold">{{ entry.frontMatter.title }}</h1>
+          <h1 class="headline font-weight-bold">
+            {{ entry.frontMatter.title }}
+          </h1>
         </v-card-title>
         <v-card-text class="pa-1">
           <v-chip color="white">
@@ -20,7 +22,9 @@
             <v-avatar>
               <v-icon>label</v-icon>
             </v-avatar>
-            <router-link :to="'/entries/tags/' + tag + '/'">{{ tag }}</router-link>
+            <router-link :to="'/entries/tags/' + tag + '/'">{{
+              tag
+            }}</router-link>
           </v-chip>
           <br />
           <v-chip color="white" text-color="black">
@@ -40,50 +44,70 @@
         </v-card-text>
       </v-card>
       <br />
-        <div v-html="$md.render(entry.content)"/>
-    
+      <div class="content" v-html="$md.render(entry.content)" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Prism from 'prismjs'
-import CategoriesLink from '~/components/CategoriesLink.vue'
+import Prism from "prismjs";
+import CategoriesLink from "~/components/CategoriesLink.vue";
 
 export default {
   asyncData(context) {
-    const path = (process.env.apiBaseUrl || 'http://localhost:8080') + `/entries/${context.route.params.id}`
+    const path =
+      (process.env.apiBaseUrl || "http://localhost:8080") +
+      `/entries/${context.route.params.id}`;
     return context.app.$axios
       .$get(path)
-      .then((res) => {
-        return { entry: res }
+      .then(res => {
+        return { entry: res };
       })
-      .catch((e) => {
+      .catch(e => {
         if (e.response === undefined) {
           context.error({
             statusCode: 500,
-            message: 'Internal Server Error'
-          })
-          return
+            message: "Internal Server Error"
+          });
+          return;
         }
         context.error({
           statusCode: e.response.status,
-          message: 'Post not found'
-        })
-      })
+          message: "Post not found"
+        });
+      });
   },
   components: {
     CategoriesLink
   },
   mounted() {
-    Prism.highlightAll()
+    Prism.highlightAll();
   },
   head() {
     return {
       title: this.entry.frontMatter.title
-    }
+    };
+  }
+};
+</script>
+<style lang="scss">
+.content {
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  pre {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  ul {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  li {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
-</script>
-<style>
 </style>
