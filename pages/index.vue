@@ -1,6 +1,5 @@
 <template>
   <div class="main-content">
-    <h2>Home</h2>
     <div class="profileBlock">
       <h3 class="headline">Latest Entries</h3>
       <br>
