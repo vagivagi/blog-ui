@@ -16,25 +16,10 @@
       <h3 class="headline">Profile</h3>
       <p>
         都内在住のシステムエンジニアです。主にJava周辺のサーバーサイドいじっています。<br />
-        このサイトは自分用のメモや日記向けに開発しました。
+        このサイトは自分用のメモや日記向けに開発しました。プロフィールはただいま更新中。
       </p>
     </div>
     <div class="profileBlock">
-      <h3 class="headline">Skill</h3>
-      <h4 class="title">Language</h4>
-      <p class="body-1">Java, JavaScript, TypeScript, Ruby, Go</p>
-      <h4 class="title">Framework/Library</h4>
-      <p class="body-1">
-        Spring Framework, Spring Boot, Seasar2, Vue.js, Nuxt.js, React, Sinatra
-      </p>
-      <h4 class="title">Tool</h4>
-      <p class="body-1">
-        GitHub.com, GitHub Enterprise(Admin), Cloud Foundry, Heroku, AWS, Azure,
-        Concourse CI,s
-      </p>
-    </div>
-    <div class="profileBlock">
-      <h3 class="headline">GitHub Profile</h3>
       <GitHubProfile />
       <h3 class="headline">GitHub Activities</h3>
       <GrassGraph />
