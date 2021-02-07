@@ -14,7 +14,7 @@ export default {
   props: {
     githubId: {
       type: String,
-      required: true,
+      required: false,
       default: 'vagivagi'
     }
   },
@@ -28,13 +28,13 @@ export default {
         type: String,
         required: true
       },
-      name: this.githubId
+      id: this.githubId
     };
   },
   created: function() {
     this.imageLink =
-      "https://grass-graph.moshimo.works/images/" + this.githubId + ".png";
-    this.githubLink = "https://github.com/" + this.githubId;
+      "https://grass-graph.moshimo.works/images/" + this.id + ".png";
+    this.githubLink = "https://github.com/" + this.id;
   }
 };
 </script>
