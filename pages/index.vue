@@ -3,7 +3,14 @@
     <h2>Home</h2>
     <div class="profileBlock">
       <h3 class="headline">Latest Entries</h3>
+      <br>
       <LatestEntries />
+      <br>
+      <div>
+        <p>
+          <a href="./entries">全ての記事はこちら</a>
+        </p>
+      </div>
     </div>
     <div class="profileBlock">
       <h3 class="headline">Profile</h3>
