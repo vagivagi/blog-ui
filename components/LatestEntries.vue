@@ -22,7 +22,7 @@ export default {
       const apiUrl = process.env.apiBaseUrl || 'http://localhost:8080'
       let api = apiUrl + '/entries'
       const res = await axios.get(api)
-      this.entries = res.data
+      this.entries = res.data.slice(0, 5)
     }
   }
 }
