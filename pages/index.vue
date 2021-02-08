@@ -1,21 +1,12 @@
 <template>
   <div class="main-content">
-    <div class="profileBlock">
-      <h3 class="headline">Latest Entries</h3>
-      <br>
-      <LatestEntries />
-      <br>
-      <div>
-        <p>
-          <a href="./entries">全ての記事はこちら</a>
-        </p>
-      </div>
-    </div>
-    <div class="profileBlock">
-      <h3 class="headline">Profile</h3>
+    <h3 class="headline">Latest Entries</h3>
+    <br />
+    <LatestEntries />
+    <br />
+    <div>
       <p>
-        都内在住のシステムエンジニアです。主にJava周辺のサーバーサイドいじっています。<br />
-        このサイトは自分用のメモや日記向けに開発しました。プロフィールはただいま更新中。
+        <a href="./entries">全ての記事はこちら</a>
       </p>
     </div>
     <div class="profileBlock">
@@ -55,8 +46,24 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss">
 .profileBlock {
-  margin: 10px;
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  pre {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  ul {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 </style>
