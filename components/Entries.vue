@@ -14,6 +14,7 @@
               <v-list-item-subtitle>
                 <CategoriesLink :categories="entry.frontMatter.categories"/>
               </v-list-item-subtitle>
+              <v-list-item-subtitle>投稿日時 : {{entry.created.date | moment}}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
           <v-divider v-if="index + 1 < entries.length" :key="index"/>
@@ -25,6 +26,7 @@
 <script lang="ts">
 import axios from 'axios'
 import CategoriesLink from './CategoriesLink.vue'
+import moment from "moment";
 
 export default {
   props: ['query', 'tag', 'categories'],
@@ -57,6 +59,11 @@ export default {
       }
       const res = await axios.get(api)
       this.entries = res.data
+    }
+  },
+  filters: {
+    moment(value) {
+      return moment(value).format('YYYY/MM/DD HH:mm');
     }
   }
 }
