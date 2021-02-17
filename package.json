@@ -20,8 +20,8 @@
     "start:local": "cross-env NODE_ENV=\"local\" nuxt-ts start"
   },
   "dependencies": {
-    "@nuxt/typescript": "^2.8.1",
     "@nuxt/types": "^2.14.12",
+    "@nuxt/typescript": "^2.8.1",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.4",
     "@nuxtjs/google-analytics": "^2.4.0",
@@ -37,6 +37,7 @@
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-meta": "0.0.1",
     "markdown-it-table-of-contents": "^0.4.4",
+    "moment": "^2.29.1",
     "nuxt": "^2.14.12",
     "prismjs": "^1.22.0",
     "redirect-ssl": "^1.4.1",

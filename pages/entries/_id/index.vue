@@ -31,15 +31,15 @@
             <v-avatar>
               <v-icon>date_range</v-icon>
             </v-avatar>
-            <strong>更新日時:</strong>
-            <strong>{{ this.entry.updated.date }}</strong>
+            <strong>更新日時 : </strong>
+            <strong>{{ this.entry.updated.date | moment}}</strong>
           </v-chip>
           <v-chip color="white" text-color="black">
             <v-avatar>
               <v-icon>date_range</v-icon>
             </v-avatar>
-            <strong>作成日時:</strong>
-            <strong>{{ this.entry.created.date }}</strong>
+            <strong>投稿日時 : </strong>
+            <strong>{{ this.entry.created.date | moment}}</strong>
           </v-chip>
         </v-card-text>
       </v-card>
@@ -52,6 +52,7 @@
 <script lang="ts">
 import Prism from "prismjs";
 import CategoriesLink from "~/components/CategoriesLink.vue";
+import moment from "moment";
 
 export default {
   asyncData(context) {
@@ -87,6 +88,11 @@ export default {
     return {
       title: this.entry.frontMatter.title
     };
+  },
+  filters: {
+    moment(value) {
+      return moment(value).format('YYYY/MM/DD HH:mm');
+    }
   }
 };
 </script>
