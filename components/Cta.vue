@@ -5,10 +5,8 @@
     bottom
     right
     color="blue"
-    href="https://github.com/vagivagi/blog-ui"
-    target="_blank"
-    rel="noopener"
+    @click="$vuetify.goTo(0)"
   >
-    <v-icon>get_app</v-icon>
+    <v-icon>keyboard_arrow_up</v-icon>
   </v-btn>
 </template>
