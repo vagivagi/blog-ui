@@ -1,6 +1,7 @@
 <template>
   <div class="main-content">
-    <h3 class="headline">Latest Entries</h3>
+    <v-banner class="headline">Latest Entries</v-banner>
+    <h3 class="headline"></h3>
     <br />
     <LatestEntries />
     <br />
@@ -9,21 +10,11 @@
         <a href="./entries">全ての記事はこちら</a>
       </p>
     </div>
+    <v-banner class="headline">Profile</v-banner>
     <div class="profileBlock">
       <GitHubProfile />
-      <h3 class="headline">GitHub Activities</h3>
+      <v-banner class="headline">GitHub Activities</v-banner>
       <GrassGraph />
-    </div>
-    <div class="profileBlock">
-      <h3 class="headline">Contact</h3>
-      <p class="title">
-        <a
-          href="https://forms.gle/NGbfkEnM5VxUA6Eq7"
-          target="_blank"
-          rel="noopener"
-          >Google Form</a
-        >
-      </p>
     </div>
   </div>
 </template>
