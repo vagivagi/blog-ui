@@ -1,10 +1,11 @@
 <template>
   <v-app>
     <nav>
-      <v-toolbar>
-        <v-toolbar-title class="pr-4">
-          <router-link :to="to" class="toolbar-title" tag="h3">{{ title }}</router-link>
+      <v-toolbar dense>
+        <v-toolbar-title class="pr-4" small>
+          <router-link :to="to" class="toolbar-title" tag="h4">{{ title }}</router-link>
         </v-toolbar-title>
+        <v-spacer class="d-flex d-sm-none"></v-spacer>
         <v-toolbar-items>
           <v-btn v-for="(item, i) in items" :key="i" :to="item.to" text>
             <v-icon left>{{ item.icon }}</v-icon>
