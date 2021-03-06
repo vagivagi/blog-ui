@@ -32,19 +32,25 @@
               <v-icon>date_range</v-icon>
             </v-avatar>
             <strong>更新日時 : </strong>
-            <strong>{{ this.entry.updated.date | moment}}</strong>
+            <strong>{{ this.entry.updated.date | moment }}</strong>
           </v-chip>
           <v-chip color="white" text-color="black">
             <v-avatar>
               <v-icon>date_range</v-icon>
             </v-avatar>
             <strong>投稿日時 : </strong>
-            <strong>{{ this.entry.created.date | moment}}</strong>
+            <strong>{{ this.entry.created.date | moment }}</strong>
           </v-chip>
         </v-card-text>
       </v-card>
-      <br />
-      <div class="content" v-html="$md.render(entry.content)" />
+      <div class="content pa-3" v-html="$md.render(entry.content)" />
+      <v-divider class="pb-5"></v-divider>
+      <v-row justify="center" align-content="center">
+        <v-btn to="/entries" exact large>
+          <v-icon left>description</v-icon>
+          <span>記事一覧</span>
+        </v-btn>
+      </v-row>
     </div>
   </div>
 </template>
@@ -91,7 +97,7 @@ export default {
   },
   filters: {
     moment(value) {
-      return moment(value).format('YYYY/MM/DD HH:mm');
+      return moment(value).format("YYYY/MM/DD HH:mm");
     }
   }
 };
