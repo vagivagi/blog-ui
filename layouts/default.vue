@@ -20,7 +20,7 @@
       </v-container>
     </v-main>
     <Cta />
-    <v-footer :fixed="fixed" app text-xs-center>
+    <v-footer :fixed="fixed" text-xs-center>
       <v-flex text-xs-center>
         <span>&copy; {{ year.getFullYear() }}</span>
       </v-flex>
