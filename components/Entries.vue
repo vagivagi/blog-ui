@@ -4,9 +4,6 @@
       <v-list>
         <template v-for="(entry, index) in entries">
           <v-list-item :key="`first-${index}`">
-            <v-list-item-avatar>
-              <v-icon color="green">description</v-icon>
-            </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title>
                 <router-link :to="'/entries/' + entry.entryId">{{ entry.frontMatter.title }}</router-link>
