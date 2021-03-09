@@ -8,7 +8,7 @@
         <v-spacer class="d-flex d-sm-none"></v-spacer>
         <v-toolbar-items>
           <v-btn v-for="(item, i) in items" :key="i" :to="item.to" text>
-            <v-icon left>{{ item.icon }}</v-icon>
+            <v-icon :color="item.color" left>{{ item.icon }}</v-icon>
             <span class="d-none d-sm-flex">{{ item.title }}</span>
           </v-btn>
         </v-toolbar-items>
@@ -45,17 +45,20 @@ export default {
       items: [
         {
           icon: "description",
+          color: "green",
           title: "記事",
           to: "/entries"
         },
         {
           icon: "layers",
           title: "カテゴリー",
+          color: "blue",
           to: "/categories"
         },
         {
           icon: "label",
           title: "タグ",
+          color: "orange",
           to: "/tags"
         }
       ],
