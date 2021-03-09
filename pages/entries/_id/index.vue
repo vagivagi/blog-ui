@@ -22,9 +22,9 @@
             <v-avatar>
               <v-icon>label</v-icon>
             </v-avatar>
-            <router-link :to="'/entries/tags/' + tag + '/'">{{
-              tag
-            }}</router-link>
+            <router-link :to="'/entries/tags/' + tag + '/'">
+              {{ tag }}
+            </router-link>
           </v-chip>
           <br />
           <v-chip color="white" text-color="black">
@@ -92,7 +92,12 @@ export default {
   },
   head() {
     return {
-      title: this.entry.frontMatter.title
+      title: this.entry.frontMatter.title,
+      meta: [
+        { hid: 'description'
+          ,name: 'description'
+          ,content: this.entry.content.replaceAll('#','').trim().slice(0, 100) }
+      ],
     };
   },
   filters: {
