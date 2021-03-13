@@ -1,7 +1,6 @@
 <template>
   <div class="main-content">
     <v-banner class="headline">Latest Entries</v-banner>
-    <h3 class="headline"></h3>
     <br />
     <LatestEntries />
     <br />
