@@ -29,9 +29,7 @@ export default {
     Prism.highlightAll();
     const path =
       "https://raw.githubusercontent.com/" +
-      // this.githubId +
       "vagivagi/vagivagi" +
-      // this.githubId +
       "/main/README.md";
     axios
       .get(path)
