@@ -1,38 +1,28 @@
 <template>
   <div class="main-content">
-    <v-treeview
-      open-all
-      dense
-      :items="items"
-    >
-      <template slot="label" slot-scope="{ item }">
-        <router-link :to="item.to">{{ item.name }}</router-link>
-      </template>
-    </v-treeview>
+    <EnglishStudyNav />
+    <h4 class="headline">概要</h4>
+    <v-divider/>
+    <br>
+    <p class="text-justify">
+      英語の勉強方法や記録をまとめるページです。<br>
+      どんな方法で勉強しているか、どれくらい勉強したかをまとめる予定です。
+    </p>
   </div>
 </template>
 
 <script>
+import EnglishStudyNav from "~/components/EnglishStudyNav.vue";
+
 export default {
+  components: {
+    EnglishStudyNav
+  },
   head() {
     return {
-      title: `英語勉強法まとめ`
+      title: `コロナ禍なので、英語の勉強を頑張ってみた`
     };
-  },
-  data: () => ({
-      items: [
-        {
-          id: 1,
-          name: '英語勉強法',
-          to: '/blog',
-          children: [
-            { id: 2, name: '語彙', to : '/english' },
-            { id: 3, name: '発音', to : '/english' },
-            { id: 4, name: '文法', to : '/english' },
-          ],
-        }
-      ]
-  })
+  }
 };
 </script>
 <style lang="scss">
