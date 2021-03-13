@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <nav>
-      <v-toolbar dense>
+      <v-app-bar dense app clipped-left clipped-right>
         <v-toolbar-title class="pr-4" small>
           <router-link :to="to" class="toolbar-title" tag="h4">{{
             title
@@ -14,7 +14,7 @@
             <span class="d-none d-sm-flex">{{ item.title }}</span>
           </v-btn>
         </v-toolbar-items>
-      </v-toolbar>
+      </v-app-bar>
     </nav>
     <v-main>
       <v-container>
@@ -22,7 +22,7 @@
       </v-container>
     </v-main>
     <Cta />
-    <v-footer :fixed="fixed" padless>
+    <v-footer padless>
       <v-col class="text-center" cols="12"
         >&copy; {{ year.getFullYear() }}</v-col
       >
