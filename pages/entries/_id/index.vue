@@ -126,5 +126,8 @@ export default {
     margin-top: 5px;
     margin-bottom: 5px;
   }
+  td, th { 
+    border: 0.5px #363636 solid; 
+  }
 }
 </style>
