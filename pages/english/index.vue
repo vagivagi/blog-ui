@@ -14,7 +14,6 @@
 <script>
 import EnglishStudyNav from "~/components/EnglishStudyNav.vue";
 import EnglishContent from "~/components/EnglishContent.vue";
-import axios from "axios";
 
 export default {
   components: {
@@ -32,19 +31,6 @@ export default {
       index: "Now Rendering",
       path: "index.md"
     };
-  },
-  mounted () {
-    const path =
-      "https://api.github.com/repos/vagivagi/english-post/contents/index.md";
-    const config = {
-      headers: {
-        'Accept': 'application/vnd.github.v3.raw',
-        'Authorization' : 'token ' + process.env.GITHUB_ACCESS_TOKEN
-      }
-    };
-    axios
-      .get(path, config)
-      .then(response => (this.index = response.data));
   }
 };
 </script>
