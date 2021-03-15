@@ -4,7 +4,7 @@
     <v-container fluid>
     <v-row>
       <v-col>
-        <div class="profile" v-html="$md.render(index)" />
+        <EnglishContent :contentPath="path" />
       </v-col>
     </v-row>
   </v-container>
@@ -13,11 +13,13 @@
 
 <script>
 import EnglishStudyNav from "~/components/EnglishStudyNav.vue";
+import EnglishContent from "~/components/EnglishContent.vue";
 import axios from "axios";
 
 export default {
   components: {
-    EnglishStudyNav
+    EnglishStudyNav,
+    EnglishContent
   },
   head() {
     return {
@@ -27,7 +29,8 @@ export default {
   data: function() {
     return {
       id: this.githubId,
-      index: "Now Rendering"
+      index: "Now Rendering",
+      path: "index.md"
     };
   },
   mounted () {
