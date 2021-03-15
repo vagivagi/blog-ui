@@ -4,7 +4,7 @@
     <v-container fluid>
     <v-row>
       <v-col>
-        <div class="profile" v-html="$md.render(index)" />
+        <EnglishContent :contentPath="path" />
       </v-col>
     </v-row>
   </v-container>
@@ -13,11 +13,12 @@
 
 <script>
 import EnglishStudyNav from "~/components/EnglishStudyNav.vue";
-import axios from "axios";
+import EnglishContent from "~/components/EnglishContent.vue";
 
 export default {
   components: {
-    EnglishStudyNav
+    EnglishStudyNav,
+    EnglishContent
   },
   head() {
     return {
@@ -27,21 +28,9 @@ export default {
   data: function() {
     return {
       id: this.githubId,
-      index: "Now Rendering"
+      index: "Now Rendering",
+      path: "index.md"
     };
-  },
-  mounted () {
-    const path =
-      "https://api.github.com/repos/vagivagi/english-post/contents/index.md";
-    const config = {
-      headers: {
-        'Accept': 'application/vnd.github.v3.raw',
-        'Authorization' : 'token ' + process.env.GITHUB_ACCESS_TOKEN
-      }
-    };
-    axios
-      .get(path, config)
-      .then(response => (this.index = response.data));
   }
 };
 </script>
