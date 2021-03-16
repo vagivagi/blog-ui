@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     refresh: async function () {
-      const apiUrl = process.env.apiBaseUrl || 'http://localhost:8080'
+      const apiUrl = process.env.API_BASE_URL || 'http://localhost:8080'
       let api = apiUrl + '/entries'
       if (this.query !== undefined) {
         api = apiUrl + '/entries?q=' + this.query

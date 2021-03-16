@@ -29,7 +29,7 @@ export default {
     }
   },
   created: async function () {
-    const res = await axios.get(process.env.apiBaseUrl + '/categories')
+    const res = await axios.get(process.env.API_BASE_URL + '/categories')
     this.categories = res.data
   }
 }
