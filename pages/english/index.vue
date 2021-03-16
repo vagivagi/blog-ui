@@ -28,7 +28,6 @@ export default {
   data: function() {
     return {
       id: this.githubId,
-      index: "Now Rendering",
       path: "index.md"
     };
   }
