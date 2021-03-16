@@ -63,7 +63,7 @@ import moment from "moment";
 export default {
   asyncData(context) {
     const path =
-      (process.env.apiBaseUrl || "http://localhost:8080") +
+      (process.env.API_BASE_URL || "http://localhost:8080") +
       `/entries/${context.route.params.id}`;
     return context.app.$axios
       .$get(path)

@@ -3,10 +3,9 @@ import redirectSSL from 'redirect-ssl'
 import dotenv from '@nuxtjs/dotenv'
 
 const environment = process.env.NODE_ENV;
-const envSet = require(`./config/env.${environment}.js`)
 
 export default {
-  env: { envSet,
+  env: { API_BASE_URL: process.env.API_BASE_URL,
          GITHUB_ACCESS_TOKEN: process.env.GITHUB_ACCESS_TOKEN
         },
   /*
