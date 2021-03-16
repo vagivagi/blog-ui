@@ -1,5 +1,10 @@
 <template>
-  <div class="content" v-html="$md.render(content)" />
+  <div>
+    <div v-if="content !== ''" class="content" v-html="$md.render(content)" />
+    <v-progress-circular
+        indeterminate
+        color="primary"></v-progress-circular>
+  </div>
 </template>
 
 <script>
@@ -12,7 +17,7 @@ export default {
   data: function() {
     return {
       id: this.githubId,
-      content: "Now Rendering"
+      content: ""
     };
   },
   created: async function () {
