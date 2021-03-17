@@ -1,24 +1,13 @@
 <template>
-  <div class="main-content">
-    <EnglishStudyNav />
-    <v-container fluid>
-    <v-row>
-      <v-col>
-        <EnglishContent :contentPath="path" />
-      </v-col>
-    </v-row>
-  </v-container>
-  </div>
+  <EnglishPage :contentPath="path"/>
 </template>
 
 <script>
-import EnglishStudyNav from "~/components/EnglishStudyNav.vue";
-import EnglishContent from "~/components/EnglishContent.vue";
+import EnglishPage from "~/components/EnglishPage.vue";
 
 export default {
   components: {
-    EnglishStudyNav,
-    EnglishContent
+    EnglishPage
   },
   head() {
     return {
