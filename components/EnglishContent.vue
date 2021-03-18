@@ -2,6 +2,7 @@
   <div>
     <div v-if="content !== ''" class="content" v-html="$md.render(content)" />
     <v-progress-circular
+        v-else
         indeterminate
         color="primary"></v-progress-circular>
   </div>
