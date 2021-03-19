@@ -1,5 +1,7 @@
 <template>
   <div class="main-content">
+    <v-banner class="headline">カテゴリーから記事検索</v-banner>
+    <br/>
     <Categories />
   </div>
 </template>
