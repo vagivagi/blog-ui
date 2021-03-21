@@ -1,13 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
 import redirectSSL from 'redirect-ssl'
 import dotenv from '@nuxtjs/dotenv'
+import axios from 'axios'
 
 const environment = process.env.NODE_ENV;
 
 export default {
-  env: { API_BASE_URL: process.env.API_BASE_URL,
-         GITHUB_ACCESS_TOKEN: process.env.GITHUB_ACCESS_TOKEN
-        },
+  env: {
+    API_BASE_URL: process.env.API_BASE_URL,
+    GITHUB_ACCESS_TOKEN: process.env.GITHUB_ACCESS_TOKEN
+  },
   /*
   ** Headers of the page
   */
@@ -57,13 +59,13 @@ export default {
   serverMiddleware: [
     redirectSSL.create({
       enabled: process.env.NODE_ENV === 'production'
-     }),
+    }),
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: { 
+  axios: {
   },
   /*
   ** vuetify module configuration
@@ -80,7 +82,7 @@ export default {
       success: colors.green.accent3
     },
     font: {
-      family: 'Roboto' 
+      family: 'Roboto'
     },
     defaultAssets: true,
     icons: {
@@ -100,6 +102,18 @@ export default {
       'markdown-it-highlightjs',
       'markdown-it-table-of-contents'
     ]
+  },
+  generate: {
+    routes() {
+      const path =
+        (process.env.API_BASE_URL || "http://localhost:8080") + `/entries`;
+      return axios.get(path)
+        .then(res => {
+          return res.data.map(entry => {
+            return `entries/${entry.entryId}`
+          })
+        })
+    }
   },
   /*
   ** Build configuration
