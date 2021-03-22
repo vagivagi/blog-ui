@@ -3,9 +3,13 @@
     <h1 v-if="error.statusCode === 404">
       {{ pageNotFound }}
     </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
+    <div v-else>
+      <h1>
+        {{ otherError }}
+      </h1>
+      <a href="https://github.com/vagivagi/vagivagi.com">Read on Github repository</a>
+    </div>
+    <br>
     <NuxtLink to="/">
       Home page
     </NuxtLink>
@@ -31,7 +35,7 @@ export default {
   data() {
     return {
       pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      otherError: 'Sorry for inconvenience. Please check article directly'
     }
   }
 }
