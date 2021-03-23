@@ -1,6 +1,8 @@
 <template>
   <div class="main-content">
-    <v-banner class="headline">カテゴリーから記事検索</v-banner>
+    <br/>
+    <h2 class="headline">カテゴリーから記事検索</h2>
+    <v-divider></v-divider>
     <br/>
     <Categories />
   </div>
