@@ -92,12 +92,7 @@ export default {
   },
   head() {
     return {
-      title: this.entry.frontMatter.title,
-      meta: [
-        { hid: 'description'
-          ,name: 'description'
-          ,content: this.entry.content.replaceAll('#','').trim().slice(0, 100) }
-      ],
+      title: this.entry.frontMatter.title
     };
   },
   filters: {
