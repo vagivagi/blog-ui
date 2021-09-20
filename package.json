@@ -39,7 +39,7 @@
     "markdown-it-table-of-contents": "^0.4.4",
     "moment": "^2.29.1",
     "nuxt": "^2.14.12",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.25.0",
     "redirect-ssl": "^1.4.1",
     "sass": "^1.30.0",
     "sass-loader": "^8.0.2",
