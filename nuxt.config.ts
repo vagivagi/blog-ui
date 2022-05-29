@@ -100,7 +100,11 @@ export default {
     use: [
       'markdown-it-meta',
       'markdown-it-highlightjs',
-      'markdown-it-table-of-contents',
+      ['markdown-it-table-of-contents', {
+        includeLevel: [1, 2, 3],
+        listType: "ol"
+      }],
+      'markdown-it-anchor',
       ['markdown-it-link-attributes', {
         // matcher: trueを返すリンクにattrsオプションを付与する
         matcher (href, _config) {
