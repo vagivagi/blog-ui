@@ -12,20 +12,16 @@
     <v-banner class="headline">Profile</v-banner>
     <div class="profileBlock">
       <GitHubProfile />
-      <v-banner class="headline">GitHub Activities</v-banner>
-      <GrassGraph />
     </div>
   </div>
 </template>
 
 <script>
-import GrassGraph from "~/components/GrassGraph.vue";
 import GitHubProfile from "~/components/GitHubProfile.vue";
 import LatestEntries from "~/components/LatestEntries.vue";
 
 export default {
   components: {
-    GrassGraph,
     GitHubProfile,
     LatestEntries
   },

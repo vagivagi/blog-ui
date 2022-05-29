@@ -46,10 +46,12 @@
       <div class="content pa-3" v-html="$md.render(entry.content)" />
       <v-divider class="pb-5"></v-divider>
       <v-row justify="center" align-content="center">
+        <Prev :currentId="this.entry.entryId" />
         <v-btn to="/entries" exact large>
           <v-icon left>description</v-icon>
           <span>記事一覧</span>
         </v-btn>
+        <Next :currentId="this.entry.entryId" />
       </v-row>
     </div>
   </div>
@@ -59,6 +61,8 @@
 import Prism from "prismjs";
 import CategoriesLink from "~/components/CategoriesLink.vue";
 import moment from "moment";
+import Prev from "~/components/Prev.vue";
+import Next from "~/components/Next.vue";
 
 export default {
   asyncData(context) {
@@ -85,7 +89,9 @@ export default {
       });
   },
   components: {
-    CategoriesLink
+    CategoriesLink,
+    Prev,
+    Next
   },
   mounted() {
     Prism.highlightAll();
