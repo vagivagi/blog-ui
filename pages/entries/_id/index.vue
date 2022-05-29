@@ -104,6 +104,7 @@ export default {
 </script>
 <style lang="scss">
 .content {
+  margin: auto;
   h1,
   h2,
   h3,
@@ -123,6 +124,19 @@ export default {
   }
   td, th { 
     border: 0.5px #363636 solid; 
+  }
+  img {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .content {
+    h2 {
+      font-size: 1.1rem;
+    }
+    img {
+      width: 100%;
+    }
   }
 }
 </style>
