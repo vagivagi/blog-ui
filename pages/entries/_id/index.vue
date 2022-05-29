@@ -47,8 +47,8 @@
       <v-divider class="pb-5"></v-divider>
       <v-row justify="center" align-content="center">
         <Prev :currentId="this.entry.entryId" />
-        <v-btn to="/entries" exact large>
-          <v-icon left>description</v-icon>
+        <v-btn to="/entries" class="mx-5" exact large>
+          <v-icon color="green" left>description</v-icon>
           <span>記事一覧</span>
         </v-btn>
         <Next :currentId="this.entry.entryId" />
@@ -134,6 +134,21 @@ export default {
   img {
     width: 80%;
   }
+  pre {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    margin-bottom: 36px;
+  }
+  blockquote {
+    padding: 12px 6px;
+  }
+  a {
+    word-break: break-all;
+  }
+  p > code {
+    padding: 4px;
+  }
 }
 @media screen and (max-width: 640px) {
   .content {
@@ -142,6 +157,11 @@ export default {
     }
     img {
       width: 100%;
+    }
+    pre {
+      font-size: 0.74rem;
+      border-radius: 0px;
+      box-shadow: none;
     }
   }
 }
