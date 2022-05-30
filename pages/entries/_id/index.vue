@@ -47,7 +47,7 @@
       <v-divider class="pb-5"></v-divider>
       <v-row justify="center" align-content="center">
         <Prev :currentId="this.entry.entryId" />
-        <v-btn to="/entries" class="mx-5" exact large>
+        <v-btn to="/entries" class="mx-3" exact>
           <v-icon color="green" left>description</v-icon>
           <span>記事一覧</span>
         </v-btn>
@@ -159,7 +159,6 @@ export default {
       width: 100%;
     }
     pre {
-      font-size: 0.74rem;
       border-radius: 0px;
       box-shadow: none;
     }
