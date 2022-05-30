@@ -1,5 +1,5 @@
 <template>
-  <v-btn :to="'/entries/' + nextId" v-if="show" exact large>
+  <v-btn :to="'/entries/' + nextId" v-if="show" exact>
     <v-icon left>arrow_forward</v-icon>
     <span>{{ title }}</span>
   </v-btn>
@@ -10,7 +10,7 @@ import axios from "axios";
 export default {
   props: {
     currentId: { default: 0, type: Number},
-    title: { default: "次の記事", type: String},
+    title: { default: "Next", type: String},
     show: { default: true, type: Boolean}
   },
   computed: {
