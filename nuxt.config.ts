@@ -6,6 +6,7 @@ import axios from 'axios'
 const environment = process.env.NODE_ENV;
 
 export default {
+  target: 'static',
   env: {
     API_BASE_URL: process.env.API_BASE_URL,
     GITHUB_ACCESS_TOKEN: process.env.GITHUB_ACCESS_TOKEN
