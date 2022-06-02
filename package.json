@@ -15,7 +15,7 @@
     "dev": "nuxt-ts",
     "dev:local": "cross-env NODE_ENV=\"local\" nuxt-ts",
     "generate": "nuxt-ts generate",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "npm run generate",
     "precommit": "npm run lint",
     "prod": "cross-env NODE_ENV=\"production\" nuxt-ts",
     "start": "nuxt-ts start",
