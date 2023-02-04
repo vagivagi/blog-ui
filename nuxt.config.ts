@@ -53,7 +53,12 @@ export default {
     '@nuxtjs/markdownit',
     "@nuxtjs/vuetify",
     ['@nuxtjs/google-analytics', {
-      id: 'UA-29175162-3'
+      id: process.env.GA_TRACKING_ID
+    }],
+    ['@nuxtjs/google-adsense', {
+      id: process.env.GA_ADSENSE_ID,
+      analyticsUacct: process.env.GA_TRACKING_ID,
+      analyticsDomainName: 'vagivagi.com'
     }]
   ],
   buildModules: ["@nuxt/typescript-build"],
