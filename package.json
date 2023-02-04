@@ -41,7 +41,7 @@
     "markdown-it-link-attributes": "^4.0.0",
     "markdown-it-meta": "0.0.1",
     "markdown-it-table-of-contents": "^0.4.4",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "nuxt": "^2.14.12",
     "prismjs": "^1.27.0",
     "redirect-ssl": "^1.4.1",
