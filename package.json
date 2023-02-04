@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "nuxt-ts build",
-    "build:prod": "cross-env NODE_ENV=\"production\" nuxt-ts build",
-    "build:local": "cross-env NODE_ENV=\"local\" nuxt-ts build",
+    "build:prod": "cross-env NODE_ENV=\"production\" nuxt-ts build && npm run generate",
+    "build:local": "cross-env NODE_ENV=\"local\" nuxt-ts build && npm run generate",
     "lint": "vue-cli-service lint",
     "dev": "nuxt-ts",
     "dev:local": "cross-env NODE_ENV=\"local\" nuxt-ts",
