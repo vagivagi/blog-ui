@@ -142,8 +142,13 @@ export default {
         res.data.map((entry) => `entries`)
       );
 
+      // Tags/Entries のルートを取得
+      const tagsEntriesPromise = axios.get(`${baseUrl}/tags`).then((res) =>
+        res.data.map((tag) => `/tags/${tag.value}/entries`)
+      );
+
       // 全てのルートを結合
-      return Promise.all([entryPromise, tagsPromise]).then(
+      return Promise.all([entryPromise, tagsPromise, entriesPromise, tagsEntriesPromise]).then(
         (routes) => routes.flat()
       );
     }
