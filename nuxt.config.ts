@@ -136,10 +136,12 @@ export default {
       const entryTagsPromise = axios.get(`${baseUrl}/tags`).then((res) =>
         res.data.map((tag) => `entries/tags/${tag.slug}`)
       );
+      // `/entries/` と `/tags/` のルートを追加
+      const staticRoutes = ['/entries', '/tags'];
 
       // 全てのルートを結合
-      return Promise.all([entriesPromise, entryTagsPromise]).then(
-        (routes) => routes.flat()
+      return Promise.all([entriesPromise, entryTagsPromise]).then((routes) =>
+        staticRoutes.concat(routes.flat())
       );
     }
   },
