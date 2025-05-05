@@ -4,9 +4,6 @@
   "private": true,
   "description": "My Blog Frontend Project",
   "author": "vagivagi",
-  "engines": {
-    "node": "18.2.0"
-  },
   "scripts": {
     "build": "nuxt-ts build",
     "build:prod": "cross-env NODE_ENV=\"production\" nuxt-ts build && npm run generate",
