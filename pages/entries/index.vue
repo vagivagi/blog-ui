@@ -14,41 +14,57 @@
       </v-card-title>
     </v-card>
     <br> -->
-    <Entries v-bind:query="this.query"/>
+    <Entries :entries="entries"/>
   </div>
 </template>
 
-<script>
-import Entries from '~/components/Entries.vue'
+<script lang="ts">
+import axios from 'axios';
+import Entries from '~/components/Entries.vue';
 
 export default {
-  props: {
-    searchText: [String]
+  components: {
+    Entries
   },
   data() {
     return {
       composing: false,
-      query: this.searchText
+      query: '', // 検索クエリ
+      entries: [] // 検索結果を格納
+    };
+  },
+  created: async function () {
+    await this.refresh(); // 初期データを取得
+  },
+  watch: {
+    query: async function () {
+      if (!this.composing) {
+        await this.refresh(); // クエリ変更時にデータを更新
+      }
     }
   },
-  components: {
-    Entries
-  },
   methods: {
-    setCanSearch() {
-      this.canSearch = true
-    },
-    search: function () {
-      if (this.composing) {
-        return
+    async refresh() {
+      try {
+        const apiUrl = process.env.API_BASE_URL || 'http://localhost:8080';
+        let api = `${apiUrl}/entries`;
+
+        // クエリに応じて API エンドポイントを変更
+        if (this.query) {
+          api = `${apiUrl}/entries?q=${this.query}`;
+        }
+
+        const res = await axios.get(api);
+        this.entries = res.data; // 検索結果を保存
+      } catch (error) {
+        console.error('データ取得中にエラーが発生しました:', error);
       }
-      this.query = this.searchText
     }
   },
   head() {
     return {
       title: `記事一覧`
-    }
+    };
   }
-}
+};
 </script>

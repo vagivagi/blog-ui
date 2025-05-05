@@ -127,8 +127,8 @@ export default {
     routes() {
       const baseUrl = process.env.API_BASE_URL || "http://localhost:8080";
 
-      // Entries のルートを取得
-      const entriesPromise = axios.get(`${baseUrl}/entries`).then((res) =>
+      // Entry のルートを取得
+      const entryPromise = axios.get(`${baseUrl}/entries`).then((res) =>
         res.data.map((entry) => `entries/${entry.entryId}`)
       );
 
@@ -137,8 +137,13 @@ export default {
         res.data.map((tags) => `/tags`)
       );
 
-        // 全てのルートを結合
-      return Promise.all([entriesPromise, tagsPromise]).then(
+      // Entries のルートを取得
+      const entriesPromise = axios.get(`${baseUrl}/entries`).then((res) =>
+        res.data.map((entry) => `entries`)
+      );
+
+      // 全てのルートを結合
+      return Promise.all([entryPromise, tagsPromise]).then(
         (routes) => routes.flat()
       );
     }
