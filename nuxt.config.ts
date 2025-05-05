@@ -141,16 +141,16 @@ export default {
   build: {
     transpile: ['vuetify/lib'],
     loaders: {
-      // we want to use sass instead of node-sass
-      options: {
-        implementation: require('sass'),
-        fiber: require('fibers'),
+      css: {
+        // 不要なオプションを削除
+        modules: {
+          // 'compileType' を削除
+          localIdentName: '[local]_[hash:base64:5]'
+        }
       }
     },
     typescript: {
-      // this is required - if set to true the HMR in dev will time out
       typeCheck: false
     },
-    buildModules: ['@nuxt/typescript-build']
   }
 }
