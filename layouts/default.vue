@@ -51,18 +51,18 @@ export default {
           title: "記事",
           to: "/entries"
         },
-        {
-          icon: "layers",
-          title: "カテゴリー",
-          color: "blue",
-          to: "/categories"
-        },
-        {
-          icon: "label",
-          title: "タグ",
-          color: "orange",
-          to: "/tags"
-        }
+        // {
+        //   icon: "layers",
+        //   title: "カテゴリー",
+        //   color: "blue",
+        //   to: "/categories"
+        // },
+        // {
+        //   icon: "label",
+        //   title: "タグ",
+        //   color: "orange",
+        //   to: "/tags"
+        // }
       ],
       miniVariant: false,
       right: true,

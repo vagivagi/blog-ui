@@ -17,7 +17,8 @@ export default {
       const ret = []
       for (const c of this.categories) {
         buf.push(c)
-        ret.push('<a href="/entries/categories/' + buf + '/">' + c + '</a>')
+        // ret.push('<a href="/entries/categories/' + buf + '/">' + c + '</a>')
+        ret.push(c)
       }
       return ret.join('/')
     }

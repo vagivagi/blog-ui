@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <v-card>
+    <!-- <v-card>
       <v-card-title>
         <v-text-field
          v-model="query"
@@ -13,7 +13,7 @@
          hide-details />
       </v-card-title>
     </v-card>
-    <br>
+    <br> -->
     <Entries v-bind:query="this.query"/>
   </div>
 </template>
