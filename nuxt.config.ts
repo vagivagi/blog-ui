@@ -125,14 +125,22 @@ export default {
   },
   generate: {
     routes() {
-      const path =
-        (process.env.API_BASE_URL || "http://localhost:8080") + `/entries`;
-      return axios.get(path)
-        .then(res => {
-          return res.data.map(entry => {
-            return `entries/${entry.entryId}`
-          })
-        })
+      const baseUrl = process.env.API_BASE_URL || "http://localhost:8080";
+
+      // Entries のルートを取得
+      const entriesPromise = axios.get(`${baseUrl}/entries`).then((res) =>
+        res.data.map((entry) => `entries/${entry.entryId}`)
+      );
+
+      // Entries/Tags のルートを取得
+      const entryTagsPromise = axios.get(`${baseUrl}/tags`).then((res) =>
+        res.data.map((tag) => `entries/tags/${tag.slug}`)
+      );
+
+      // 全てのルートを結合
+      return Promise.all([entriesPromise, entryTagsPromise]).then(
+        (routes) => routes.flat()
+      );
     }
   },
   /*

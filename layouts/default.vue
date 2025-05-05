@@ -57,12 +57,12 @@ export default {
         //   color: "blue",
         //   to: "/categories"
         // },
-        // {
-        //   icon: "label",
-        //   title: "タグ",
-        //   color: "orange",
-        //   to: "/tags"
-        // }
+        {
+          icon: "label",
+          title: "タグ",
+          color: "orange",
+          to: "/tags"
+        }
       ],
       miniVariant: false,
       right: true,

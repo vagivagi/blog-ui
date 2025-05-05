@@ -22,10 +22,9 @@
             <v-avatar>
               <v-icon>label</v-icon>
             </v-avatar>
-            <!-- <router-link :to="'/entries/tags/' + tag + '/'">
+            <router-link :to="'/entries/tags/' + tag + '/'">
               {{ tag }}
-            </router-link> -->
-            <span>{{ tag }}</span>
+            </router-link>
           </v-chip>
           <br />
           <v-chip color="white" text-color="black">
