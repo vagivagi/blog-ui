@@ -15,26 +15,31 @@
       </v-card-title>
     </v-card>
     <br>
-    <Entries :tag="tag" />
+    <Entries v-bind:entries="entries" />
   </div>
 </template>
 
-<script>
-import Entries from '~/components/Entries.vue'
+<script lang="ts">
+import axios from 'axios';
+import Entries from '~/components/Entries.vue';
 
 export default {
-  data() {
-    return {
-      tag: this.$route.params.tag
-    }
-  },
   components: {
     Entries
+  },
+  async asyncData({ params }) {
+    const baseUrl = process.env.API_BASE_URL || 'http://localhost:8080';
+    const api = `${baseUrl}/tags/${params.tag}/entries`;
+    const res = await axios.get(api);
+    return {
+      tag: params.tag,
+      entries: res.data // 静的生成時にデータを埋め込む
+    };
   },
   head() {
     return {
       title: `記事一覧`
-    }
+    };
   }
-}
+};
 </script>

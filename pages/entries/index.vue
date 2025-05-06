@@ -14,41 +14,30 @@
       </v-card-title>
     </v-card>
     <br> -->
-    <Entries v-bind:query="this.query"/>
+    <Entries :entries="entries"/>
   </div>
 </template>
 
-<script>
-import Entries from '~/components/Entries.vue'
+<script lang="ts">
+import axios from 'axios';
+import Entries from '~/components/Entries.vue';
 
 export default {
-  props: {
-    searchText: [String]
-  },
-  data() {
-    return {
-      composing: false,
-      query: this.searchText
-    }
-  },
   components: {
     Entries
   },
-  methods: {
-    setCanSearch() {
-      this.canSearch = true
-    },
-    search: function () {
-      if (this.composing) {
-        return
-      }
-      this.query = this.searchText
-    }
+  async asyncData() {
+    const baseUrl = process.env.API_BASE_URL || 'http://localhost:8080';
+    const api = `${baseUrl}/entries`;
+    const res = await axios.get(api);
+    return {
+      entries: res.data // 静的生成時にデータを埋め込む
+    };
   },
   head() {
     return {
       title: `記事一覧`
-    }
+    };
   }
-}
+};
 </script>

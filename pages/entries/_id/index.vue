@@ -10,22 +10,21 @@
         <v-card-text class="pa-1">
           <v-chip color="white">
             <v-icon color="blue" left>layers</v-icon>
-            <CategoriesLink :categories="this.entry.frontMatter.categories" />
+            <CategoriesLink :categories="entry.frontMatter.categories" />
           </v-chip>
           <br />
           <v-chip
             color="white"
             text-color="orange"
-            v-for="tag in this.entry.frontMatter.tags"
+            v-for="tag in entry.frontMatter.tags"
             :key="tag"
           >
             <v-avatar>
               <v-icon>label</v-icon>
             </v-avatar>
-            <!-- <router-link :to="'/entries/tags/' + tag + '/'">
+            <router-link :to="'/entries/tags/' + tag + '/'">
               {{ tag }}
-            </router-link> -->
-            <span>{{ tag }}</span>
+            </router-link>
           </v-chip>
           <br />
           <v-chip color="white" text-color="black">
@@ -33,26 +32,26 @@
               <v-icon>date_range</v-icon>
             </v-avatar>
             <strong>更新日時 : </strong>
-            <strong>{{ this.entry.updated.date | moment }}</strong>
+            <strong>{{ entry.updated.date | moment }}</strong>
           </v-chip>
           <v-chip color="white" text-color="black">
             <v-avatar>
               <v-icon>date_range</v-icon>
             </v-avatar>
             <strong>投稿日時 : </strong>
-            <strong>{{ this.entry.created.date | moment }}</strong>
+            <strong>{{ entry.created.date | moment }}</strong>
           </v-chip>
         </v-card-text>
       </v-card>
       <div class="content pa-3" v-html="$md.render(entry.content)" />
       <v-divider class="pb-5"></v-divider>
       <v-row justify="center" align-content="center">
-        <Prev :currentId="this.entry.entryId" />
+        <Prev :currentId="entryId" :show="previousExists" />
         <v-btn to="/entries" class="mx-3" exact>
           <v-icon color="green" left>description</v-icon>
           <span>記事一覧</span>
         </v-btn>
-        <Next :currentId="this.entry.entryId" />
+        <Next :currentId="entryId" :show="nextExists" />
       </v-row>
     </div>
   </div>
@@ -64,30 +63,30 @@ import CategoriesLink from "~/components/CategoriesLink.vue";
 import moment from "moment";
 import Prev from "~/components/Prev.vue";
 import Next from "~/components/Next.vue";
+import axios from "axios";
 
 export default {
-  asyncData(context) {
-    const path =
-      (process.env.API_BASE_URL || "http://localhost:8080") +
-      `/entries/${context.route.params.id}`;
-    return context.app.$axios
-      .$get(path)
-      .then(res => {
-        return { entry: res };
-      })
-      .catch(e => {
-        if (e.response === undefined) {
-          context.error({
-            statusCode: 500,
-            message: "Internal Server Error"
-          });
-          return;
-        }
-        context.error({
-          statusCode: e.response.status,
-          message: "Post not found"
-        });
-      });
+  async asyncData(context) {
+    const baseUrl = process.env.API_BASE_URL || "http://localhost:8080";
+    const entryId = Number(context.route.params.id);
+    const [entry, previousExists, nextExists] = await Promise.all([
+        axios.get(`${baseUrl}/entries/${entryId}`).then((res) => res.data),
+        axios
+          .get(`${baseUrl}/entries/${entryId - 1}`)
+          .then(() => true)
+          .catch(() => false),
+        axios
+          .get(`${baseUrl}/entries/${entryId + 1}`)
+          .then(() => true)
+          .catch(() => false)
+      ]);
+
+    return {
+      entryId,
+      entry,
+      previousExists,
+      nextExists
+    };
   },
   components: {
     CategoriesLink,

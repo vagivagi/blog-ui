@@ -2,7 +2,7 @@
   <div class="main-content">
     <v-banner class="headline">Latest Entries</v-banner>
     <br />
-    <LatestEntries />
+    <LatestEntries :entries="latestEntries"/>
     <br />
     <div>
       <p>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import GitHubProfile from "~/components/GitHubProfile.vue";
 import LatestEntries from "~/components/LatestEntries.vue";
 
@@ -24,6 +25,21 @@ export default {
   components: {
     GitHubProfile,
     LatestEntries
+  },
+  async asyncData() {
+    const baseUrl = process.env.API_BASE_URL || "http://localhost:8080";
+    const api = `${baseUrl}/entries`;
+    try {
+      const res = await axios.get(api);
+      return {
+        latestEntries: res.data.slice(0, 5) // 最新の5件を取得
+      };
+    } catch (error) {
+      console.error("データ取得中にエラーが発生しました:", error);
+      return {
+        latestEntries: [] // エラー時は空配列を返す
+      };
+    }
   },
   head() {
     return {
