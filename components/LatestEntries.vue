@@ -9,21 +9,14 @@
 import axios from 'axios'
 
 export default {
-  data() {
+  async asyncData({ params }) {
+    const baseUrl = process.env.API_BASE_URL || 'http://localhost:8080';
+    const api = `${baseUrl}/entries`;
+    const res = await axios.get(api);
     return {
-      entries: Object
-    }
-  },
-  created: async function () {
-    await this.refresh()
-  },
-  methods: {
-    refresh: async function () {
-      const apiUrl = process.env.API_BASE_URL || 'http://localhost:8080'
-      let api = apiUrl + '/entries'
-      const res = await axios.get(api)
-      this.entries = res.data.slice(0, 5)
-    }
+      tag: params.tag,
+      entries: res.data.slice(0, 5)
+    };
   }
 }
 </script>
