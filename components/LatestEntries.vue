@@ -9,14 +9,16 @@
 import axios from 'axios'
 
 export default {
-  async asyncData({ params }) {
+  data() {
+    return {
+      entries: [] // 初期値を空配列に設定
+    };
+  },
+  async created() {
     const baseUrl = process.env.API_BASE_URL || 'http://localhost:8080';
     const api = `${baseUrl}/entries`;
     const res = await axios.get(api);
-    return {
-      tag: params.tag,
-      entries: res.data.slice(0, 5)
-    };
+    this.entries = res.data.slice(0, 5);
   }
 }
 </script>
