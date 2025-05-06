@@ -9,18 +9,12 @@ export default {
   props: {
     currentId: { default: 0, type: Number },
     title: { default: "Prev", type: String },
-    show: { default: true, type: Boolean },
-    exists: { default: false, type: Boolean } // 静的生成時に埋め込む
+    show: { default: true, type: Boolean }
   },
   computed: {
     previousId: function () {
       return this.currentId - 1;
     }
-  },
-  data() {
-    return {
-      show: this.exists // 静的生成時に埋め込まれたデータを使用
-    };
   }
 };
 </script>

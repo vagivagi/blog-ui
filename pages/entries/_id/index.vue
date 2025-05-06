@@ -46,12 +46,12 @@
       <div class="content pa-3" v-html="$md.render(entry.content)" />
       <v-divider class="pb-5"></v-divider>
       <v-row justify="center" align-content="center">
-        <Prev :currentId="entryId" :exists="previousExists" />
+        <Prev :currentId="entryId" :show="previousExists" />
         <v-btn to="/entries" class="mx-3" exact>
           <v-icon color="green" left>description</v-icon>
           <span>記事一覧</span>
         </v-btn>
-        <Next :currentId="entryId" :exists="nextExists" />
+        <Next :currentId="entryId" :show="nextExists" />
       </v-row>
     </div>
   </div>
