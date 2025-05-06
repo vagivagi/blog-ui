@@ -132,23 +132,13 @@ export default {
         res.data.map((entry) => `entries/${entry.entryId}`)
       );
 
-      // Tags のルートを取得
-      const tagsPromise = axios.get(`${baseUrl}/tags`).then((res) =>
-        res.data.map((tags) => `/tags`)
-      );
-
-      // Entries のルートを取得
-      const entriesPromise = axios.get(`${baseUrl}/entries`).then((res) =>
-        res.data.map((entry) => `entries`)
-      );
-
       // Tags/Entries のルートを取得
       const tagsEntriesPromise = axios.get(`${baseUrl}/tags`).then((res) =>
-        res.data.map((tag) => `/tags/${tag.value}/entries`)
+        res.data.map((tag) => `/entries/tags/${tag.value}/`)
       );
 
       // 全てのルートを結合
-      return Promise.all([entryPromise, tagsPromise, entriesPromise, tagsEntriesPromise]).then(
+      return Promise.all([entryPromise, tagsEntriesPromise]).then(
         (routes) => routes.flat()
       );
     }

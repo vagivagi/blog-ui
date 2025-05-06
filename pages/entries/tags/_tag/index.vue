@@ -27,29 +27,14 @@ export default {
   components: {
     Entries
   },
-  data() {
+  async asyncData({ params }) {
+    const baseUrl = process.env.API_BASE_URL || 'http://localhost:8080';
+    const api = `${baseUrl}/tags/${params.tag}/entries`;
+    const res = await axios.get(api);
     return {
-      tag: this.$route.params.tag,
-      entries: [] // 検索結果を格納
+      tag: params.tag,
+      entries: res.data // 静的生成時にデータを埋め込む
     };
-  },
-  created: async function () {
-    await this.refresh(); // 初期データを取得
-  },
-  methods: {
-    async refresh() {
-      try {
-        const apiUrl = process.env.API_BASE_URL || 'http://localhost:8080';
-        let api = `${apiUrl}/entries`;
-        if (this.tag) {
-          api = `${apiUrl}/tags/${this.tag}/entries`;
-        }
-        const res = await axios.get(api);
-        this.entries = res.data; // 検索結果を保存
-      } catch (error) {
-        console.error('データ取得中にエラーが発生しました:', error);
-      }
-    }
   },
   head() {
     return {

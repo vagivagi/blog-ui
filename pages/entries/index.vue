@@ -26,40 +26,13 @@ export default {
   components: {
     Entries
   },
-  data() {
+  async asyncData() {
+    const baseUrl = process.env.API_BASE_URL || 'http://localhost:8080';
+    const api = `${baseUrl}/entries`;
+    const res = await axios.get(api);
     return {
-      composing: false,
-      query: '', // 検索クエリ
-      entries: [] // 検索結果を格納
+      entries: res.data // 静的生成時にデータを埋め込む
     };
-  },
-  created: async function () {
-    await this.refresh(); // 初期データを取得
-  },
-  watch: {
-    query: async function () {
-      if (!this.composing) {
-        await this.refresh(); // クエリ変更時にデータを更新
-      }
-    }
-  },
-  methods: {
-    async refresh() {
-      try {
-        const apiUrl = process.env.API_BASE_URL || 'http://localhost:8080';
-        let api = `${apiUrl}/entries`;
-
-        // クエリに応じて API エンドポイントを変更
-        if (this.query) {
-          api = `${apiUrl}/entries?q=${this.query}`;
-        }
-
-        const res = await axios.get(api);
-        this.entries = res.data; // 検索結果を保存
-      } catch (error) {
-        console.error('データ取得中にエラーが発生しました:', error);
-      }
-    }
   },
   head() {
     return {

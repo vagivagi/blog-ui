@@ -16,27 +16,13 @@ export default {
   components: {
     Tags
   },
-  data() {
+  async asyncData() {
+    const baseUrl = process.env.API_BASE_URL || 'http://localhost:8080';
+    const api = `${baseUrl}/tags`;
+    const res = await axios.get(api);
     return {
-      tags: {
-        type: Object
-      }
-    }
-  },
-  created: async function () {
-    await this.refresh()
-  },
-  methods: {
-    async refresh() {
-      try {
-        const apiUrl = process.env.API_BASE_URL || 'http://localhost:8080';
-        let api = `${apiUrl}/tags`;
-        const res = await axios.get(api);
-        this.tags = res.data; // 検索結果を保存
-      } catch (error) {
-        console.error('データ取得中にエラーが発生しました:', error);
-      }
-    }
+      tags: res.data // 静的生成時にデータを埋め込む
+    };
   },
   head() {
     return {
