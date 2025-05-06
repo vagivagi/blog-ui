@@ -66,22 +66,20 @@ import Next from "~/components/Next.vue";
 import axios from "axios";
 
 export default {
-  asyncData(context) {
+  async asyncData(context) {
     const baseUrl = process.env.API_BASE_URL || "http://localhost:8080";
     const entryId = Number(context.route.params.id);
-    // 現在のエントリを取得
-    const entry = axios.get(`${baseUrl}/entries/${entryId}`).then((res) => res.data);
-
-    // 前のエントリが存在するか確認
-    const previousExists = axios
-      .get(`${baseUrl}/entries/${entryId - 1}`)
-      .then(() => true)
-      .catch(() => false);
-    // 次のエントリが存在するか確認
-    const nextExists = axios
-      .get(`${baseUrl}/entries/${entryId + 1}`)
-      .then(() => true)
-      .catch(() => false);
+    const [entry, previousExists, nextExists] = await Promise.all([
+        axios.get(`${baseUrl}/entries/${entryId}`).then((res) => res.data),
+        axios
+          .get(`${baseUrl}/entries/${entryId - 1}`)
+          .then(() => true)
+          .catch(() => false),
+        axios
+          .get(`${baseUrl}/entries/${entryId + 1}`)
+          .then(() => true)
+          .catch(() => false)
+      ]);
 
     return {
       entryId,
